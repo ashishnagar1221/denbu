@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
-import { ItemTypes } from "./constants";
+import { ItemTypes } from "../constants";
 import SkinItem from "./SkinItem";
 
 const Skin = () => {

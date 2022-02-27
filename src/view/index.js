@@ -2,8 +2,8 @@ import React from "react";
 import { Row, Col, Container } from "reactstrap";
 import { Navbar, NavbarBrand } from "reactstrap";
 import logo from "../assets/logo.png";
-import Skelton from "./Skelton";
-import Skin from "./Skin";
+import Skelton from "./skelton/Skelton";
+import Skin from "./Skin/Skin";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 

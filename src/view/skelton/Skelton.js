@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row } from "reactstrap";
-import { ItemTypes } from "./constants";
+import { ItemTypes } from "../constants";
 import SkeltonContainer from "./SkeltonContainer";
 import update from "immutability-helper";
 
