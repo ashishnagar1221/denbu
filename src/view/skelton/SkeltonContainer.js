@@ -1,9 +1,10 @@
 import React from "react";
 import { useDrop } from "react-dnd";
+import DroppedSkinItem from "../DroppedSkinItem";
 const style = {
   height: "6rem",
-  width:"8rem",
-  padding: "0.5rem 1rem",
+  width: "8rem",
+  // padding: "0.5rem 1rem",
   border: "1px dashed black",
   marginBottom: "0.25rem",
   backgroundColor: "#dfa9a9",
@@ -11,7 +12,7 @@ const style = {
   lineHeight: "normal",
 };
 
-const SkeltonContainer = ({ accept,lastDroppedItem, onDrop }) => {
+const SkeltonContainer = ({ accept, lastDroppedItem, onDrop }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -27,7 +28,7 @@ const SkeltonContainer = ({ accept,lastDroppedItem, onDrop }) => {
         : `This dustbin accepts: ${accept.join(", ")}`} */}
 
       {lastDroppedItem && (
-        <p>Last dropped: {JSON.stringify(lastDroppedItem)}</p>
+        <DroppedSkinItem lastDroppedItem={lastDroppedItem}/>
       )}
     </div>
   );
