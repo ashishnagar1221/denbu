@@ -1,13 +1,8 @@
 import React from "react";
 import { useDrop } from "react-dnd";
 import DroppedSkinItem from "../DroppedSkinItem";
-const style = {
-  // marginBottom: "0.1rem",
-  marginRight: "1.5rem",
-  lineHeight: "normal",
-};
 
-const SkeltonContainer = ({ accept, lastDroppedItem, base,margin,onDrop }) => {
+const SkeltonContainer = ({ accept, lastDroppedItem, base,margin,index,onDrop }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -17,14 +12,10 @@ const SkeltonContainer = ({ accept, lastDroppedItem, base,margin,onDrop }) => {
     }),
   });
   return (
-    <div ref={drop} role="Dustbin" style={{ ...style }}>
-      {/* {isActive
-        ? "Release to drop"
-        : `This dustbin accepts: ${accept.join(", ")}`} */}
-        <img src={base}/>
-
+    <div ref={drop}>
+        <img src={base} alt=""/>
       {lastDroppedItem && (
-        <DroppedSkinItem lastDroppedItem={lastDroppedItem} margin={margin}/>
+        <DroppedSkinItem lastDroppedItem={lastDroppedItem} margin={margin} index={index}/>
       )}
     </div>
   );

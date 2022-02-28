@@ -1,41 +1,40 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { removeSkin } from "../store/action";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 
-const DroppedSkinItem = ({ lastDroppedItem, margin }) => {
+const DroppedSkinItem = ({ lastDroppedItem, margin, index }) => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
-
-  const drag = useSelector((state) => state);
-  const handleRemove = (item) => {
-    console.log(item);
-    dispatch(removeSkin(item));
+  const handleRemove = (item, index) => {
+    dispatch(removeSkin({item, index}));
   };
-  useEffect(() => {
-    console.log(drag);
-  }, [drag]);
+
   return (
     <>
       <div onDoubleClick={() => setOpenModal(true)}>
         <img
           src={lastDroppedItem.name}
           style={{ zIndex: 9999, marginTop: margin }}
+          className="droopedSkin"
+          alt=""
         />
       </div>
       <Modal isOpen={openModal} toggle={() => setOpenModal(false)}>
         <ModalHeader>Remove this skin ?</ModalHeader>
         <ModalBody>
           <Button
-            className="btn btn-sm secondary"
+            className="btn btn-sm float-end"
+            color="secondary"
             onClick={() => setOpenModal(false)}
           >
             Cancel
           </Button>
           <Button
-            className="btn btn-sm success"
+            className="btn btn-sm float-end mx-2"
+            color="success"
             onClick={() => {
-              handleRemove(lastDroppedItem);
+              handleRemove(lastDroppedItem, index);
             }}
           >
             Remove

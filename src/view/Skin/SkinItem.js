@@ -1,15 +1,5 @@
-import React from "react";
 import { useDrag } from "react-dnd";
-const style = {
-  // border: "1px dashed gray",
-  backgroundColor: "white",
-  padding: "0.5rem 1rem",
-  marginRight: "1.5rem",
-  marginBottom: "1.5rem",
-  cursor: "move",
-};
-
-const SkinItem = ({ name, type, imgSource }) => {
+const SkinItem = ({ name, type }) => {
   const [{ opacity }, drag] = useDrag(
     () => ({
       type,
@@ -21,8 +11,8 @@ const SkinItem = ({ name, type, imgSource }) => {
     [name, type]
   );
   return (
-    <div ref={drag} style={{ ...style, opacity }}>
-      {<img src={name}/>}
+    <div ref={drag} style={{ cursor: "move", opacity }}>
+      {<img src={name} alt="" />}
     </div>
   );
 };

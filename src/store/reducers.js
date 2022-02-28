@@ -1,5 +1,5 @@
 import { ItemTypes } from "../view/constants";
-import { REMOVESKIN, ADDSKIN } from "./constant";
+import { REMOVESKIN, ADDSKIN,RESET } from "./constant";
 
 import Mundi from "../assets/images/mundi-removebg-preview.png";
 import Dhad from "../assets/images/dhad-removebg-preview.png";
@@ -35,6 +35,7 @@ let initialState = [
 
 const rootReducer = (state = initialState, action) => {
   let payLoad = action.payLoad;
+  console.log(payLoad);
   switch (action.type) {
     case ADDSKIN:
       return [
@@ -46,12 +47,18 @@ const rootReducer = (state = initialState, action) => {
         ...state.slice(payLoad.index + 1),
       ];
     case REMOVESKIN:
-      const index = state.findIndex(
-        (ele) => ele.lastDroppedItem.name == payLoad.name
-      );
-      const newArray = state;
-      newArray[index].lastDroppedItem = null;
-      return [...newArray];
+      return [
+        ...state.slice(0, payLoad.index),
+        {
+          ...state[payLoad.index],
+          lastDroppedItem: null,
+        },
+        ...state.slice(payLoad.index + 1),
+      ];
+    case RESET:
+      return [
+        ...initialState
+      ]
     default:
       return state;
   }
