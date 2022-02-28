@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeSkin } from "../store/action";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 
-const DroppedSkinItem = ({ lastDroppedItem }) => {
+const DroppedSkinItem = ({ lastDroppedItem, margin }) => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -17,10 +17,11 @@ const DroppedSkinItem = ({ lastDroppedItem }) => {
   }, [drag]);
   return (
     <>
-      <div onDoubleClick={() => setOpenModal(true)} 
-      // className="droopedSkin"
-      >
-        <img src = {lastDroppedItem.name} />
+      <div onDoubleClick={() => setOpenModal(true)}>
+        <img
+          src={lastDroppedItem.name}
+          style={{ zIndex: 9999, marginTop: margin }}
+        />
       </div>
       <Modal isOpen={openModal} toggle={() => setOpenModal(false)}>
         <ModalHeader>Remove this skin ?</ModalHeader>

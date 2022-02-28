@@ -22,7 +22,7 @@ const SkinItem = ({ name, type, imgSource }) => {
   );
   return (
     <div ref={drag} style={{ ...style, opacity }}>
-      {<img src={name} />}
+      {<img src={name}/>}
     </div>
   );
 };

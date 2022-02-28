@@ -1,11 +1,8 @@
 .droopedSkin {
-  height: 5.8rem;
-  width: 7.8rem;
-  border: 1px dashed red;
-  background-color: blue;
+  /* z-index: 99999; */
 }
 
-.droopedSkin:hover {
+/* .droopedSkin:hover {
   height: 6rem;
   width: 8rem;
-}
+} */

@@ -18,7 +18,7 @@ const index = () => {
       <Container>
         <DndProvider backend={HTML5Backend}>
           <Row>
-            <Col sm={12}>
+            <Col sm={4}>
               <Skin />
             </Col>
             <Col sm={8} style={{ display: "flex", justifyContent: "center" }}>

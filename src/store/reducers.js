@@ -7,10 +7,30 @@ import leg from "../assets/images/leg-removebg-preview.png";
 import paav from "../assets/images/paav-removebg-preview.png";
 
 let initialState = [
-  { allow: ItemTypes.HAT, lastDroppedItem: null, base: Mundi },
-  { allow: ItemTypes.SHIRT, lastDroppedItem: null, base: Dhad },
-  { allow: ItemTypes.PANT, lastDroppedItem: null, base: leg },
-  { allow: ItemTypes.SHOE, lastDroppedItem: null, base: paav },
+  {
+    allow: ItemTypes.HAT,
+    lastDroppedItem: null,
+    base: Mundi,
+    margin: "-215px",
+  },
+  {
+    allow: ItemTypes.SHIRT,
+    lastDroppedItem: null,
+    base: Dhad,
+    margin: "-225px",
+  },
+  {
+    allow: ItemTypes.PANT,
+    lastDroppedItem: null,
+    base: leg,
+    margin: "-340px",
+  },
+  {
+    allow: ItemTypes.SHOE,
+    lastDroppedItem: null,
+    base: paav,
+    margin: "-115px",
+  },
 ];
 
 const rootReducer = (state = initialState, action) => {

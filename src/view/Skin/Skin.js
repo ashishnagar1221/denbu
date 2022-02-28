@@ -8,7 +8,7 @@ import Pant from '../../assets/images/pant-removebg-preview.png'
 import Shoe from '../../assets/images/shoe-removebg-preview.png'
 
 const Skin = () => {
-  const [skin] = useState([
+  const [skin,setSkin] = useState([
     { name:Cap, type: ItemTypes.HAT, },
     { name:Shirt, type: ItemTypes.SHIRT },
     { name:Pant, type: ItemTypes.PANT },
@@ -17,7 +17,7 @@ const Skin = () => {
   return (
     <Row>
       {skin.map(({ name, type }, index) => (
-        <Col sm={2}>
+        <Col sm={12}>
           <SkinItem name={name} type={type} key={index} />
         </Col>
       ))}

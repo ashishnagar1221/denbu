@@ -7,7 +7,7 @@ const style = {
   lineHeight: "normal",
 };
 
-const SkeltonContainer = ({ accept, lastDroppedItem, base,onDrop }) => {
+const SkeltonContainer = ({ accept, lastDroppedItem, base,margin,onDrop }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -24,7 +24,7 @@ const SkeltonContainer = ({ accept, lastDroppedItem, base,onDrop }) => {
         <img src={base}/>
 
       {lastDroppedItem && (
-        <DroppedSkinItem lastDroppedItem={lastDroppedItem}/>
+        <DroppedSkinItem lastDroppedItem={lastDroppedItem} margin={margin}/>
       )}
     </div>
   );

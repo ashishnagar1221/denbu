@@ -17,11 +17,12 @@ const Skelton = () => {
 
   return (
     <div>
-      {breadBoard.map(({ allow, lastDroppedItem,base }, index) => (
+      {breadBoard.map(({ allow, lastDroppedItem,base,margin }, index) => (
         <Row>
           <SkeltonContainer
             base={base}
             accept={allow}
+            margin={margin}
             lastDroppedItem={lastDroppedItem}
             onDrop={(item) => handleDrop(index, item)}
             key={index}
