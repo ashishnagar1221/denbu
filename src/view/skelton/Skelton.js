@@ -1,30 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row } from "reactstrap";
 import { ItemTypes } from "../constants";
+import { addSkin } from "../../store/action";
 import SkeltonContainer from "./SkeltonContainer";
 import update from "immutability-helper";
+import { useDispatch, useSelector } from "react-redux";
 
 const Skelton = () => {
-  const [breadBoard, setBreadBoard] = useState([
-    { allow: ItemTypes.HAT, lastDroppedItem: null },
-    { allow: ItemTypes.SHIRT, lastDroppedItem: null },
-    { allow: ItemTypes.PANT, lastDroppedItem: null },
-  ]);
+  const breadBoard = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  console.log(breadBoard);
+  useEffect(() => {}, [breadBoard]);
+
   const handleDrop = (index, item) => {
-    console.log(index, item);
-    setBreadBoard(
-      update(breadBoard, {
-        [index]: {
-          lastDroppedItem: {
-            $set: item,
-          },
-        },
-      })
-    );
+    dispatch(addSkin({ index, item }));
   };
+
   return (
     <div>
-      {breadBoard.map(({ allow,lastDroppedItem }, index) => (
+      {breadBoard.map(({ allow, lastDroppedItem }, index) => (
         <Row>
           <SkeltonContainer
             accept={allow}

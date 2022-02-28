@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeSkin } from "../store/action";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 
 const DroppedSkinItem = ({ lastDroppedItem }) => {
   const [openModal, setOpenModal] = useState(false);
+  const dispatch = useDispatch();
+
+  const drag = useSelector((state) => state);
+  const handleRemove = (item) => {
+    console.log(item);
+    dispatch(removeSkin(item));
+  };
+  useEffect(() => {
+    console.log(drag);
+  }, [drag]);
   return (
     <>
       <div onDoubleClick={() => setOpenModal(true)} className="droopedSkin">
@@ -17,7 +29,14 @@ const DroppedSkinItem = ({ lastDroppedItem }) => {
           >
             Cancel
           </Button>
-          <Button className="btn btn-sm success"> Remove</Button>
+          <Button
+            className="btn btn-sm success"
+            onClick={() => {
+              handleRemove(lastDroppedItem);
+            }}
+          >
+            Remove
+          </Button>
         </ModalBody>
       </Modal>
     </>
