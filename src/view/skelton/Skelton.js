@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Row } from "reactstrap";
-import { ItemTypes } from "../constants";
 import { addSkin } from "../../store/action";
 import SkeltonContainer from "./SkeltonContainer";
-import update from "immutability-helper";
 import { useDispatch, useSelector } from "react-redux";
 
 const Skelton = () => {
@@ -19,9 +17,10 @@ const Skelton = () => {
 
   return (
     <div>
-      {breadBoard.map(({ allow, lastDroppedItem }, index) => (
+      {breadBoard.map(({ allow, lastDroppedItem,base }, index) => (
         <Row>
           <SkeltonContainer
+            base={base}
             accept={allow}
             lastDroppedItem={lastDroppedItem}
             onDrop={(item) => handleDrop(index, item)}

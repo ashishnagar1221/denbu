@@ -17,8 +17,10 @@ const DroppedSkinItem = ({ lastDroppedItem }) => {
   }, [drag]);
   return (
     <>
-      <div onDoubleClick={() => setOpenModal(true)} className="droopedSkin">
-        {lastDroppedItem.name}
+      <div onDoubleClick={() => setOpenModal(true)} 
+      // className="droopedSkin"
+      >
+        <img src = {lastDroppedItem.name} />
       </div>
       <Modal isOpen={openModal} toggle={() => setOpenModal(false)}>
         <ModalHeader>Remove this skin ?</ModalHeader>

@@ -1,11 +1,16 @@
 import { ItemTypes } from "../view/constants";
 import { REMOVESKIN, ADDSKIN } from "./constant";
-import update from "immutability-helper";
+
+import Mundi from "../assets/images/mundi-removebg-preview.png";
+import Dhad from "../assets/images/dhad-removebg-preview.png";
+import leg from "../assets/images/leg-removebg-preview.png";
+import paav from "../assets/images/paav-removebg-preview.png";
 
 let initialState = [
-  { allow: ItemTypes.HAT, lastDroppedItem: null },
-  { allow: ItemTypes.SHIRT, lastDroppedItem: null },
-  { allow: ItemTypes.PANT, lastDroppedItem: null },
+  { allow: ItemTypes.HAT, lastDroppedItem: null, base: Mundi },
+  { allow: ItemTypes.SHIRT, lastDroppedItem: null, base: Dhad },
+  { allow: ItemTypes.PANT, lastDroppedItem: null, base: leg },
+  { allow: ItemTypes.SHOE, lastDroppedItem: null, base: paav },
 ];
 
 const rootReducer = (state = initialState, action) => {
@@ -22,11 +27,11 @@ const rootReducer = (state = initialState, action) => {
       ];
     case REMOVESKIN:
       const index = state.findIndex(
-        (ele) => ele.lastDroppedItem.name === payLoad.name
+        (ele) => ele.lastDroppedItem.name == payLoad.name
       );
-      const newArray = state
-      newArray[index].lastDroppedItem=null
-      return [...newArray]
+      const newArray = state;
+      newArray[index].lastDroppedItem = null;
+      return [...newArray];
     default:
       return state;
   }

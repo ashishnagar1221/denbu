@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 const style = {
-  border: "1px dashed gray",
+  // border: "1px dashed gray",
   backgroundColor: "white",
   padding: "0.5rem 1rem",
   marginRight: "1.5rem",
@@ -9,7 +9,7 @@ const style = {
   cursor: "move",
 };
 
-const SkinItem = ({ name, type, isDropped }) => {
+const SkinItem = ({ name, type, imgSource }) => {
   const [{ opacity }, drag] = useDrag(
     () => ({
       type,
@@ -22,7 +22,7 @@ const SkinItem = ({ name, type, isDropped }) => {
   );
   return (
     <div ref={drag} style={{ ...style, opacity }}>
-      {isDropped ? <s>{name}</s> : name}
+      {<img src={name} />}
     </div>
   );
 };
